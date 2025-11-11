@@ -7,7 +7,7 @@ import utez.edu.com.server.modules.users.model.User;
 import utez.edu.com.server.utils.Message;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/sgu-api/users")
 @CrossOrigin(origins = "*")
 public class UserController {
     private final UserService userService;
