@@ -1,10 +1,10 @@
 const ApiController = {};
 const ENV = import.meta.env;
-const API_URL = `http://${ENV.VITE_API_HOST}:${ENV.VITE_API_PORT}${ENV.VITE_API_BASE}`;
+const API_URL = `http://${ENV.VITE_API_HOST}:${ENV.VITE_API_PORT}${ENV.VITE_API_BASE}/users`;
 
 // Obtener todos los usuarios
 ApiController.getAllUsers = async () => {
-  return await fetch(`${API_URL}/users`, {
+  return await fetch(`${API_URL}`, {
     method: 'GET',
     headers: { 'Accept': 'application/json' }
   }).then(res => res.json()).catch(console.log);
@@ -12,7 +12,7 @@ ApiController.getAllUsers = async () => {
 
 // Crear nuevo usuario
 ApiController.createUser = async (user) => {
-  return await fetch(`${API_URL}/users/create`, {
+  return await fetch(`${API_URL}/create`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user)
@@ -21,7 +21,7 @@ ApiController.createUser = async (user) => {
 
 // Actualizar usuario
 ApiController.updateUser = async (id, user) => {
-  return await fetch(`${API_URL}/users/${id}`, {
+  return await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user)
@@ -30,7 +30,7 @@ ApiController.updateUser = async (id, user) => {
 
 // Eliminar usuario
 ApiController.deleteUser = async (id) => {
-  return await fetch(`${API_URL}/users/${id}`, {
+  return await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
     headers: { 'Accept': 'application/json' }
   }).then(res => res.json()).catch(console.log);
