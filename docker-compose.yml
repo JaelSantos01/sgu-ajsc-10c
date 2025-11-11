@@ -46,7 +46,7 @@ services:
     networks:
       - sgu-net
     depends_on:
-      - database
+      - frontend
 
 networks:
   sgu-net:
