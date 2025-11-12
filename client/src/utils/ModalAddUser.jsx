@@ -3,10 +3,10 @@ import { Modal, Button, Form } from "react-bootstrap";
 
 function ModalAddUser({ show, handleClose, onSave }) {
   const [formData, setFormData] = useState({
-    nombre: "",
-    apellidos: "",
+    name: "",
+    lastname: "",
     email: "",
-    telefono: "",
+    phone: "",
   });
 
   const handleChange = (e) => {

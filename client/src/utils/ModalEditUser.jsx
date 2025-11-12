@@ -27,11 +27,11 @@ function ModalEditUser({ show, handleClose, user, onUpdate }) {
         <Form>
           <Form.Group>
             <Form.Label>Nombre</Form.Label>
-            <Form.Control name="nombre" value={formData.nombre || ""} onChange={handleChange} />
+            <Form.Control name="nombre" value={formData.name || ""} onChange={handleChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Apellidos</Form.Label>
-            <Form.Control name="apellidos" value={formData.apellidos || ""} onChange={handleChange} />
+            <Form.Control name="apellidos" value={formData.lastname || ""} onChange={handleChange} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email</Form.Label>
@@ -39,7 +39,7 @@ function ModalEditUser({ show, handleClose, user, onUpdate }) {
           </Form.Group>
           <Form.Group>
             <Form.Label>Teléfono</Form.Label>
-            <Form.Control name="telefono" value={formData.telefono || ""} onChange={handleChange} />
+            <Form.Control name="telefono" value={formData.phone || ""} onChange={handleChange} />
           </Form.Group>
         </Form>
       </Modal.Body>

@@ -101,10 +101,10 @@ function App() {
           <tbody>
             {users.map((u) => (
               <tr key={u.id}>
-                <td>{u.nombre}</td>
-                <td>{u.apellidos}</td>
+                <td>{u.name}</td>
+                <td>{u.lastname}</td>
                 <td>{u.email}</td>
-                <td>{u.telefono}</td>
+                <td>{u.phone}</td>
                 <td>
                   <button
                     className="btn btn-sm btn-outline-primary me-2"
