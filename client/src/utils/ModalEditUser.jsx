@@ -27,25 +27,46 @@ function ModalEditUser({ show, handleClose, user, onUpdate }) {
         <Form>
           <Form.Group>
             <Form.Label>Nombre</Form.Label>
-            <Form.Control name="nombre" value={formData.name || ""} onChange={handleChange} />
+            <Form.Control
+              name="name"
+              value={formData.name || ""}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Apellidos</Form.Label>
-            <Form.Control name="apellidos" value={formData.lastname || ""} onChange={handleChange} />
+            <Form.Control
+              name="lastname"
+              value={formData.lastname || ""}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="email" value={formData.email || ""} onChange={handleChange} />
+            <Form.Control
+              name="email"
+              type="email"
+              value={formData.email || ""}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Teléfono</Form.Label>
-            <Form.Control name="telefono" value={formData.phone || ""} onChange={handleChange} />
+            <Form.Control
+              name="phone"
+              value={formData.phone || ""}
+              onChange={handleChange}
+            />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>Cancelar</Button>
-        <Button variant="primary" onClick={handleSubmit}>Actualizar</Button>
+        <Button variant="secondary" onClick={handleClose}>
+          Cancelar
+        </Button>
+        <Button variant="primary" onClick={handleSubmit}>
+          Actualizar
+        </Button>
       </Modal.Footer>
     </Modal>
   );

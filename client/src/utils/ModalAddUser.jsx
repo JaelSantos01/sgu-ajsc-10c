@@ -28,25 +28,46 @@ function ModalAddUser({ show, handleClose, onSave }) {
         <Form>
           <Form.Group>
             <Form.Label>Nombre</Form.Label>
-            <Form.Control name="nombre" onChange={handleChange} />
+            <Form.Control
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Apellidos</Form.Label>
-            <Form.Control name="apellidos" onChange={handleChange} />
+            <Form.Control
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="email" type="email" onChange={handleChange} />
+            <Form.Control
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Label>Teléfono</Form.Label>
-            <Form.Control name="telefono" onChange={handleChange} />
+            <Form.Control
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>Cancelar</Button>
-        <Button variant="primary" onClick={handleSubmit}>Guardar</Button>
+        <Button variant="secondary" onClick={handleClose}>
+          Cancelar
+        </Button>
+        <Button variant="primary" onClick={handleSubmit}>
+          Guardar
+        </Button>
       </Modal.Footer>
     </Modal>
   );
