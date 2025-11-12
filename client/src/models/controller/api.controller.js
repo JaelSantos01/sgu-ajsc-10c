@@ -6,7 +6,9 @@ const API_URL = `http://${ENV.VITE_API_HOST}:${ENV.VITE_API_PORT}${ENV.VITE_API_
 ApiController.getAllUsers = async () => {
   return await fetch(`${API_URL}`, {
     method: 'GET',
-    headers: { 'Accept': 'application/json' }
+    headers: { 'Accept': 'application/json',
+      'Content-Type': 'application/json'
+     }
   }).then(res => res.json()).catch(console.log);
 };
 
@@ -14,7 +16,9 @@ ApiController.getAllUsers = async () => {
 ApiController.createUser = async (user) => {
   return await fetch(`${API_URL}/create`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 
+      'Accept': 'application/json',
+      'Content-Type': 'application/json' },
     body: JSON.stringify(user)
   }).then(res => res.json()).catch(console.log);
 };
@@ -23,7 +27,8 @@ ApiController.createUser = async (user) => {
 ApiController.updateUser = async (id, user) => {
   return await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Accept': 'application/json', 'Content-Type': 'application/json' },
     body: JSON.stringify(user)
   }).then(res => res.json()).catch(console.log);
 };
@@ -32,7 +37,8 @@ ApiController.updateUser = async (id, user) => {
 ApiController.deleteUser = async (id) => {
   return await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
-    headers: { 'Accept': 'application/json' }
+    headers: { 
+      'Accept': 'application/json', 'Content-Type': 'application/json' }
   }).then(res => res.json()).catch(console.log);
 };
 
