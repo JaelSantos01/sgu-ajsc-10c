@@ -15,14 +15,29 @@ ApiController.getAllUsers = async () => {
 
 // Crear nuevo usuario
 ApiController.createUser = async (user) => {
-  return await fetch(`${API_URL}/create`, {
-    method: 'POST',
-    headers: { 
-      'Accept': 'application/json',
-      'Content-Type': 'application/json' },
-    body: JSON.stringify(user)
-  }).then(res => res.json()).catch(console.log);
+  try {
+    const res = await fetch(`${API_URL}/create`, {
+      method: 'POST',
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+
+    if (!res.ok) {
+      const text = await res.text(); // cuerpo en texto para debug
+      console.error(`Error HTTP ${res.status}:`, text);
+      throw new Error(`Error HTTP ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error en createUser:", error);
+    return null;
+  }
 };
+
 
 // Actualizar usuario
 ApiController.updateUser = async (id, user) => {
