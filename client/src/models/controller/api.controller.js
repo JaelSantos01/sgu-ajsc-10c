@@ -6,7 +6,8 @@ const API_URL = `http://${ENV.VITE_API_HOST}:${ENV.VITE_API_PORT}${ENV.VITE_API_
 ApiController.getAllUsers = async () => {
   return await fetch(`${API_URL}`, {
     method: 'GET',
-    headers: { 'Accept': 'application/json',
+    headers: { 
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
      }
   }).then(res => res.json()).catch(console.log);

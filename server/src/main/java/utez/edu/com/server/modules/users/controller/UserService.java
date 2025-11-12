@@ -48,20 +48,28 @@ public class UserService {
 
     // Create
     @Transactional(rollbackFor = SQLException.class)
-    public ResponseEntity<Message> create ( User user){
-        if(user.getName().length()>30 || user.getLastname().length()>30){
-            return new ResponseEntity<>(new Message("Nombre o apellido demasiado laro", TypesResponse.WARNING),HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Message> create(User user) {
+        if (user.getName() == null || user.getLastname() == null ||
+            user.getEmail() == null || user.getPhone() == null) {
+            return new ResponseEntity<>(new Message("Faltan campos obligatorios", TypesResponse.ERROR), HttpStatus.BAD_REQUEST);
         }
-        if(userRepository.existsByEmail(user.getEmail())){
+
+        if (user.getName().length() > 30 || user.getLastname().length() > 30) {
+            return new ResponseEntity<>(new Message("Nombre o apellido demasiado largo", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
+        }
+
+        if (userRepository.existsByEmail(user.getEmail())) {
             return new ResponseEntity<>(new Message("Ya existe un usuario con ese mismo correo", TypesResponse.WARNING), HttpStatus.BAD_REQUEST);
         }
+
         if (userRepository.existsByPhone(user.getPhone())) {
             return new ResponseEntity<>(new Message("Ya existe un usuario con ese teléfono", TypesResponse.WARNING), HttpStatus.CONFLICT);
         }
 
         user = userRepository.saveAndFlush(user);
-        return new ResponseEntity<>(new Message(user, "Usuario registrado correctamaente", TypesResponse.SUCCESS), HttpStatus.OK);
+        return new ResponseEntity<>(new Message(user, "Usuario registrado correctamente", TypesResponse.SUCCESS), HttpStatus.OK);
     }
+
 
     // UPDATE
     @Transactional(rollbackFor = SQLException.class)
