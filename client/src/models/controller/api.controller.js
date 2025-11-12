@@ -59,9 +59,13 @@ ApiController.deleteUser = async (id) => {
 };
 
 ApiController.getUserByName = async (name) => {
-  const res = await fetch(`${API_URL}/${name}`);
-  return res.json();
+  return await fetch(`${API_URL}/${name}`,{
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json()).catch(console.log);
 };
-
 
 export default ApiController;

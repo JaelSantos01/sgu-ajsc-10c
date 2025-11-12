@@ -15,7 +15,7 @@ function App() {
 
   const loadUsers = async () => {
     const data = await ApiController.getAllUsers();
-    setUsers(data.data || []);
+    setUsers(data.result || []);
   };
 
   useEffect(() => {
@@ -51,8 +51,8 @@ function App() {
     }
     try {
       const data = await ApiController.getUserByName(searchTerm.trim());
-      if (data.data) {
-        setUsers([data.data]); // muestra solo el encontrado
+      if (data.result && data.result.length > 0) {
+        setUsers(data.result);
       } else {
         showError("Usuario no encontrado");
       }
