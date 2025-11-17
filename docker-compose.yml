@@ -24,7 +24,6 @@ services:
         API_PROTOCOL: https
     container_name: sgu-frontend
     ports:
-      #- "3000:80"
       - "3000:443"
     networks: 
       - sgu-net
@@ -45,7 +44,7 @@ services:
       DB_NAME: sgu_db
       DB_USER: root
       DB_PASS: root
-      SERVER_SSL_ENABLE: true
+      SERVER_SSL_ENABLED: true
       SERVER_SSL_KEYSTORE: /etc/letsencrypt/live/localhost/keystore.p12
       SERVER_SSL_KEYSTORE_PASS: changeit
     ports:
