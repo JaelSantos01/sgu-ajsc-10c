@@ -24,6 +24,7 @@ services:
         API_PROTOCOL: https
     container_name: sgu-frontend
     ports:
+      #- "3000:80"
       - "3000:443"
     networks: 
       - sgu-net

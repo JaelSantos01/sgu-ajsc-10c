@@ -3,12 +3,13 @@ package utez.edu.com.server.utils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
 @Configuration
-public class DBConnetion {
+public class DBConnection {
     @Value("${db.host}")
     private String host;
 
@@ -24,6 +25,7 @@ public class DBConnetion {
     @Value("${db.pass}")
     private String pass;
 
+    @Primary
     @Bean
     public DataSource getDBConnection(){
         DriverManagerDataSource source = new DriverManagerDataSource();
