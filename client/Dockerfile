@@ -11,6 +11,7 @@ COPY . .
 ARG API_HOST
 ARG API_PORT
 ARG API_BASE
+ARG API_PROTOCOL
 
 # Definir variables de entorno para nuestro .env
 ENV VITE_API_HOST=$API_HOST
